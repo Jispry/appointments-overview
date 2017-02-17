@@ -1,0 +1,15 @@
+<h2>Query Google Calendar</h2>
+<p>month from - to</p>
+<form [formGroup]="queryForm" class="form-inline" novalidate (ngSubmit)="queryEvents(queryForm.value)">
+  <label class="mr-sm-2" for="inlineFormInput">From</label>
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="required" formControlName="monthFrom"/>
+
+  <label class="mr-sm-2" for="inlineFormInput">To</label>
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="required" formControlName="monthTo"/>
+
+  <button class="btn btn-primary" type="submit" [disabled]="!queryForm.valid">Query</button>
+</form>
+<div *ngIf="queryResult">
+  <span>Google Api returned: {{queryResult.data.length}} events</span>
+  <button class="btn btn-primary" (click)="toAnalysis()">Analyze</button>
+</div>

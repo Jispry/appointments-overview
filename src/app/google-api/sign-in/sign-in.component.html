@@ -1,0 +1,4 @@
+<span>Google Api
+  <button type="button" class="btn btn-outline-success" *ngIf="!isSignedIn" (click)="logIn()">Log in</button>
+  <button type="button" class="btn btn-outline-info" *ngIf="isSignedIn" (click)="logOut()">Log out</button>
+</span>
