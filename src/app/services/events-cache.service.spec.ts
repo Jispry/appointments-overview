@@ -20,6 +20,9 @@ describe('EventsCacheService', () => {
           },
           start: {
             dateTime: ''
+          },
+          creator: {
+            email: ''
           }
         },
       ];
@@ -41,6 +44,9 @@ describe('EventsCacheService', () => {
           },
           start: {
             dateTime: '2016-08-31T10:00:00+02:00'
+          },
+          creator: {
+            email: ''
           }
         },
         {
@@ -50,6 +56,9 @@ describe('EventsCacheService', () => {
           },
           start: {
             date: '2016-08-31'
+          },
+          creator: {
+            email: ''
           }
         }
       ];
@@ -75,6 +84,9 @@ describe('EventsCacheService', () => {
           },
           start: {
             dateTime: dateTimeStart
+          },
+          creator: {
+            email: ''
           }
         },
         {
@@ -84,6 +96,9 @@ describe('EventsCacheService', () => {
           },
           start: {
             date: '2016-08-31'
+          },
+          creator: {
+            email: ''
           }
         }
       ];

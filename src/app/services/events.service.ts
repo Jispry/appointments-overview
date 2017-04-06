@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { EventsCacheService, Event, CacheMeta } from './events-cache.service';
 
-export interface GroupedByNameEvent {
+export interface GroupedByEventCreator {
   name: string;
   totalDuration: number;
   totalCount: number;
@@ -10,7 +10,7 @@ export interface GroupedByNameEvent {
 
 export interface GroupedByMonth {
   month: number;
-  nameGroup: Array<GroupedByNameEvent>;
+  nameGroup: Array<GroupedByEventCreator>;
 }
 
 export interface GroupedByMonthSeries {
@@ -29,8 +29,8 @@ export class EventsService {
     this.meta = cacheService.meta;
   }
 
-  public groupEventsByName(): Array<GroupedByNameEvent> {
-    return this.groupByEventName(this.data);
+  public groupEventsByName(): Array<GroupedByEventCreator> {
+    return this.groupByCreator(this.data);
   }
 
   public getGroupByMonthReport(): Array<GroupedByMonth> {
@@ -41,7 +41,7 @@ export class EventsService {
     for (let i = 0; i < groupedByMonth.length; i++) {
       const group = groupedByMonth[i];
 
-      const groupedByName = this.groupByEventName(group);
+      const groupedByName = this.groupByCreator(group);
       const orderer = this.ordeByList(groupedByName, allNames);
 
       result.push({
@@ -122,8 +122,8 @@ export class EventsService {
     return result;
   }
 
-  private groupByEventName(events: Array<Event>): Array<GroupedByNameEvent> {
-    const result: Array<GroupedByNameEvent> = [];
+  private groupByCreator(events: Array<Event>): Array<GroupedByEventCreator> {
+    const result: Array<GroupedByEventCreator> = [];
 
     if (!events) {
       return result;
@@ -132,15 +132,15 @@ export class EventsService {
     for (let i = 0; i < events.length; i++) {
       const event = events[i];
 
-      let index = result.findIndex(x => x.name === event.name);
+      let index = result.findIndex(x => x.name === event.creator);
       // if found
       if (index > -1) {
         const found = result[index];
         found.totalCount++;
         found.totalDuration += event.duration;
       } else {
-        let newEvent: GroupedByNameEvent = {
-          name: event.name,
+        let newEvent: GroupedByEventCreator = {
+          name: event.creator,
           totalDuration: event.duration,
           totalCount: 1
         };
@@ -152,7 +152,7 @@ export class EventsService {
     return result;
   }
 
-  private ordeByList(events: Array<GroupedByNameEvent>, orderBy: Array<string>): Array<GroupedByNameEvent> {
+  private ordeByList(events: Array<GroupedByEventCreator>, orderBy: Array<string>): Array<GroupedByEventCreator> {
     let result = [];
     for (let i = 0; i < orderBy.length; i++) {
       let name = orderBy[i];
@@ -161,7 +161,7 @@ export class EventsService {
       if (found) {
         result.push(found);
       } else {
-        let emptyEvent: GroupedByNameEvent = {
+        let emptyEvent: GroupedByEventCreator = {
           name: name,
           totalCount: 0,
           totalDuration: 0

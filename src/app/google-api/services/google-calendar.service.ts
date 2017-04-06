@@ -22,7 +22,7 @@ export class GoogleCalendarService {
     let calendarQuery: CalendarQuery = {
       calendarId: this.calendarId,
       timeMin: this.getISODateStringFromMonth(query.monthFrom),
-      timeMax: this.getISODateStringFromMonth(query.monthTo + 1),
+      timeMax: this.getISODateStringFromMonth(+query.monthTo + 1),
       showDeleted: false,
     };
     return Observable.fromPromise(

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { EventsService, GroupedByNameEvent, DateTransformService } from '../services';
+import { EventsService, GroupedByEventCreator, DateTransformService } from '../services';
 import { PieData, BarData } from '../charts';
 
 @Component({
@@ -9,7 +9,7 @@ import { PieData, BarData } from '../charts';
   styleUrls: ['./events-overview.component.css']
 })
 export class EventsOverviewComponent implements OnInit {
-  public data: Array<GroupedByNameEvent>;
+  public data: Array<GroupedByEventCreator>;
   public pieChartData: PieData;
   public barChartData: BarData;
 

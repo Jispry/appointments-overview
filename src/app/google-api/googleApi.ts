@@ -48,6 +48,10 @@ interface CalendarEvents {
     list(CalendarQuery): Promise<CalendarListResponse>;
 }
 
+interface Creator {
+    email: string;
+}
+
 export interface CalendarQuery {
     calendarId: string;
     timeMin?: string;
@@ -83,7 +87,7 @@ interface CalendarListResult {
 export interface CalendarEvent {
     attendees: Array<any>;
     created: string;
-    creator: any;
+    creator: Creator;
     end: DateObject;
     etag: any;
     hangoutLink: string;

@@ -7,7 +7,7 @@ import { PieComponent } from './pie/pie.component';
 import { MultiLineBarComponent } from './multi-line-bar/multi-line-bar.component';
 import { DistributedBarComponent } from './distributed-bar/distributed-bar.component';
 
-declare let Chartist: any;
+export declare let Chartist: any;
 
 @NgModule({
   imports: [

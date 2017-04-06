@@ -10,6 +10,7 @@ export interface Event {
   name: string;
   duration: number;
   date: Date;
+  creator: string;
 }
 
 export interface CacheMeta {
@@ -39,7 +40,7 @@ export class EventsCacheService {
       meta: {
         queried: new Date(),
         monthFrom: mothFrom,
-        monthTo: monthTo
+        monthTo: monthTo,
       },
       data: data.map((event) => {
         let dateFrom = this.getDateFromDateObject(event.start);
@@ -47,7 +48,8 @@ export class EventsCacheService {
         return {
           name: event.summary,
           duration: dateTo.getTime() - dateFrom.getTime(),
-          date: dateFrom
+          date: dateFrom,
+          creator: event.creator.email
         };
       })
     };

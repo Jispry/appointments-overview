@@ -29,14 +29,14 @@ describe('EventsService', () => {
     });
 
     it('#groupEventsByName() group all events by eventName', () => {
-      dataStub.push({ name: 'name', duration: 10, date: new Date(2017, 2, 5) });
-      dataStub.push({ name: 'name', duration: 5, date: new Date(2017, 2, 8) });
-      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 2, 12) });
+      dataStub.push({ name: 'name', duration: 10, date: new Date(2017, 2, 5), creator: 'email@example.com' });
+      dataStub.push({ name: 'name', duration: 5, date: new Date(2017, 2, 8), creator: 'email@example.com' });
+      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 2, 12), creator: 'email@example.com' });
 
       let result = service.groupEventsByName();
 
       expect(result.length).toEqual(1);
-      expect(result[0].name).toEqual('name');
+      expect(result[0].name).toEqual('email@example.com');
       expect(result[0].totalDuration).toEqual(30);
       expect(result[0].totalCount).toEqual(3);
     });
@@ -44,14 +44,14 @@ describe('EventsService', () => {
     it('#groupEventsByMonth() should group events by month', () => {
       eventsCacheStub.meta.monthFrom = 3;
       eventsCacheStub.meta.monthTo = 6;
-      dataStub.push({ name: 'name', duration: 10, date: new Date(2017, 2, 5) });
-      dataStub.push({ name: 'name', duration: 5, date: new Date(2017, 2, 8) });
-      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 3, 13) });
-      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 4, 12) });
-      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 2, 12) });
-      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 4, 18) });
-      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 2, 12) });
-      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 5, 1) });
+      dataStub.push({ name: 'name', duration: 10, date: new Date(2017, 2, 5), creator: 'email@example.com' });
+      dataStub.push({ name: 'name', duration: 5, date: new Date(2017, 2, 8), creator: 'email@example.com' });
+      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 3, 13), creator: 'email@example.com' });
+      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 4, 12), creator: 'email@example.com' });
+      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 2, 12), creator: 'email@example.com' });
+      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 4, 18), creator: 'email@example.com' });
+      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 2, 12), creator: 'email@example.com' });
+      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 5, 1), creator: 'email@example.com' });
 
       let result = service.getGroupByMonthReport();
 
@@ -69,10 +69,10 @@ describe('EventsService', () => {
     it('#groupEventsByMonth() each group should contain all names', () => {
       eventsCacheStub.meta.monthFrom = 3;
       eventsCacheStub.meta.monthTo = 6;
-      dataStub.push({ name: 'name', duration: 10, date: new Date(2017, 2, 5) });
-      dataStub.push({ name: 'name2', duration: 5, date: new Date(2017, 2, 8) });
-      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 3, 13) });
-      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 4, 12) });
+      dataStub.push({ name: 'name', duration: 10, date: new Date(2017, 2, 5), creator: 'email@example.com' });
+      dataStub.push({ name: 'name2', duration: 5, date: new Date(2017, 2, 8), creator: 'email2@example.com' });
+      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 3, 13), creator: 'email@example.com' });
+      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 4, 12), creator: 'email@example.com' });
 
 
       let result = service.getGroupByMonthReport();
@@ -89,11 +89,11 @@ describe('EventsService', () => {
       const expectedOrder = ['name', 'name2', 'name3'];
       eventsCacheStub.meta.monthFrom = 3;
       eventsCacheStub.meta.monthTo = 6;
-      dataStub.push({ name: 'name', duration: 10, date: new Date(2017, 2, 5) });
-      dataStub.push({ name: 'name2', duration: 5, date: new Date(2017, 2, 8) });
-      dataStub.push({ name: 'name2', duration: 15, date: new Date(2017, 3, 13) });
-      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 4, 12) });
-      dataStub.push({ name: 'name3', duration: 15, date: new Date(2017, 4, 14) });
+      dataStub.push({ name: 'name', duration: 10, date: new Date(2017, 2, 5), creator: 'email@example.com' });
+      dataStub.push({ name: 'name2', duration: 5, date: new Date(2017, 2, 8), creator: 'email2@example.com' });
+      dataStub.push({ name: 'name2', duration: 15, date: new Date(2017, 3, 13), creator: 'email2@example.com' });
+      dataStub.push({ name: 'name', duration: 15, date: new Date(2017, 4, 12), creator: 'email@example.com' });
+      dataStub.push({ name: 'name3', duration: 15, date: new Date(2017, 4, 14), creator: 'email3@example.com' });
 
 
       let result = service.getGroupByMonthReport();
@@ -114,9 +114,9 @@ describe('EventsService', () => {
     });
 
     it('#getGroupedByMonthSeries() should return all names', () => {
-      dataStub.push({ name: 'name', duration: 10, date: new Date(2017, 2, 5) });
-      dataStub.push({ name: 'name2', duration: 5, date: new Date(2017, 2, 8) });
-      dataStub.push({ name: 'name2', duration: 15, date: new Date(2017, 3, 13) });
+      dataStub.push({ name: 'name', duration: 10, date: new Date(2017, 2, 5), creator: 'email@example.com' });
+      dataStub.push({ name: 'name2', duration: 5, date: new Date(2017, 2, 8), creator: 'email2@example.com' });
+      dataStub.push({ name: 'name2', duration: 15, date: new Date(2017, 3, 13), creator: 'email2@example.com' });
 
       let result = service.getGroupedByMonthSeries();
 
@@ -126,9 +126,9 @@ describe('EventsService', () => {
     it('#getGroupedByMonthSeries() should ser serries', () => {
       eventsCacheStub.meta.monthFrom = 3;
       eventsCacheStub.meta.monthTo = 4;
-      dataStub.push({ name: 'name', duration: 10, date: new Date(2017, 2, 5) });
-      dataStub.push({ name: 'name', duration: 5, date: new Date(2017, 2, 8) });
-      dataStub.push({ name: 'name', duration: 45, date: new Date(2017, 3, 13) });
+      dataStub.push({ name: 'name', duration: 10, date: new Date(2017, 2, 5), creator: 'email@example.com' });
+      dataStub.push({ name: 'name', duration: 5, date: new Date(2017, 2, 8), creator: 'email@example.com' });
+      dataStub.push({ name: 'name', duration: 45, date: new Date(2017, 3, 13), creator: 'email@example.com'});
 
       let result = service.getGroupedByMonthSeries();
 

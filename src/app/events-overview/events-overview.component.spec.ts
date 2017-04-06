@@ -5,7 +5,7 @@ import { DebugElement, Component, Input, Pipe, PipeTransform } from '@angular/co
 
 import { PieData, BarData } from '../charts';
 import { EventsOverviewComponent } from './events-overview.component';
-import { EventsService, GroupedByNameEvent, DateTransformService } from '../services';
+import { EventsService, GroupedByEventCreator, DateTransformService } from '../services';
 
 describe('EventsOverviewComponent', () => {
   describe('Isolated', () => {
@@ -30,7 +30,7 @@ describe('EventsOverviewComponent', () => {
     });
 
     it('should create data for Pie Chart', () => {
-      const mockedData: Array<GroupedByNameEvent> = [
+      const mockedData: Array<GroupedByEventCreator> = [
         { name: 'name', totalCount: 10, totalDuration: 50 },
         { name: 'name2', totalCount: 20, totalDuration: 150 },
         { name: 'name3', totalCount: 30, totalDuration: 350 }
