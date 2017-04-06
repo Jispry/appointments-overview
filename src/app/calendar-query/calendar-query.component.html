@@ -2,10 +2,18 @@
 <p>month from - to</p>
 <form [formGroup]="queryForm" class="form-inline" novalidate (ngSubmit)="queryEvents(queryForm.value)">
   <label class="mr-sm-2" for="inlineFormInput">From</label>
-  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="required" formControlName="monthFrom"/>
+  <select type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" formControlName="monthFrom">
+    <option *ngFor="let month of months" [ngValue]="month.value">
+      {{ month.name }}
+    </option>
+  </select>
 
   <label class="mr-sm-2" for="inlineFormInput">To</label>
-  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="required" formControlName="monthTo"/>
+  <select type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" formControlName="monthTo">
+    <option *ngFor="let month of months" [ngValue]="month.value">
+      {{ month.name }}
+    </option>
+  </select>
 
   <button class="btn btn-primary" type="submit" [disabled]="!queryForm.valid">Query</button>
 </form>
