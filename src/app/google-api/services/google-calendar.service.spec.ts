@@ -1,5 +1,3 @@
-/* tslint:disable:no-unused-variable */
-
 import { TestBed, async, inject } from '@angular/core/testing';
 import { GoogleCalendarService } from './google-calendar.service';
 import { KALENDARID_TOKEN } from '../googleApi';

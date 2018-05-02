@@ -1,5 +1,3 @@
-/* tslint:disable:no-unused-variable */
-
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';

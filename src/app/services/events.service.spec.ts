@@ -1,5 +1,3 @@
-/* tslint:disable:no-unused-variable */
-
 import { TestBed, async, inject } from '@angular/core/testing';
 import { EventsService } from './events.service';
 import { EventsCacheService, Event } from './events-cache.service';
