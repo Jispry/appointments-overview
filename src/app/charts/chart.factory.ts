@@ -41,6 +41,7 @@ export class ChartFactory {
             }]
         ];
 
+        // tslint:disable-next-line:no-unused-expression
         new this.chartist.Pie(wrapperEl, data, options, responsiveOptions);
     }
 
@@ -52,6 +53,7 @@ export class ChartFactory {
                 labelInterpolationFnc: labelFncY || this.labelInterpolationFunction
             }
         };
+        // tslint:disable-next-line:no-unused-expression
         new this.chartist.Bar(wrapperEl, data, options);
     }
 
@@ -64,6 +66,7 @@ export class ChartFactory {
             distributeSeries: true
         };
 
+        // tslint:disable-next-line:no-unused-expression
         new this.chartist.Bar(wrapperEl, data, options);
     }
 

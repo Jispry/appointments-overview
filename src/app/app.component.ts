@@ -11,11 +11,4 @@ export class AppComponent implements OnInit {
 
   public ngOnInit() {
   }
-
-  /**
-   * method
-   */
-  public method() {
-    gapi.client.setApiKey('');
-  }
 }

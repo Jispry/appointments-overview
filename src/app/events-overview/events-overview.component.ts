@@ -40,7 +40,7 @@ export class EventsOverviewComponent implements OnInit {
       labels: labels,
       series: series
     };
-  };
+  }
 
   private setGroupedByMonthChartData() {
     const groupedData = this.eventService.getGroupedByMonthSeries();
