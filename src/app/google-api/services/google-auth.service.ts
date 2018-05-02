@@ -7,7 +7,7 @@ declare let gapi: GoogleApi;
 export class GoogleAuthService {
   signInStatus: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(/*@Inject(GOOGLEAPI_TOKEN) private ggapi: GoogleApi,*/@Inject(APICONFIG_TOKEN) private apiConfig: ClientSettings) {
+  constructor(/*@Inject(GOOGLEAPI_TOKEN) private gapi: GoogleApi, */@Inject(APICONFIG_TOKEN) private apiConfig: ClientSettings) {
     if (!gapi.client || !gapi.auth2) {
       this.loadGapi();
     }
@@ -31,7 +31,7 @@ export class GoogleAuthService {
 
   private loadGapi() {
     console.log('loadGapi');
-    gapi.load('client:auth2', () => {this.initClient(); } /*this.initClient.bind(this)*/);
+    gapi.load('client:auth2', () => {this.initClient(); });
   }
 
   /**

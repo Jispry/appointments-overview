@@ -1,8 +1,8 @@
-import { OpaqueToken } from '@angular/core';
+import { InjectionToken } from '@angular/core';
 
-export let GOOGLEAPI_TOKEN = new OpaqueToken('gapi');
-export let APICONFIG_TOKEN = new OpaqueToken('api-config');
-export let KALENDARID_TOKEN = new OpaqueToken('kalendarId');
+export let GOOGLEAPI_TOKEN = new InjectionToken('gapi');
+export let APICONFIG_TOKEN = new InjectionToken<ClientSettings>('api-config');
+export let KALENDARID_TOKEN = new InjectionToken<string>('kalendarId');
 
 export interface GoogleApi {
     client: Client;

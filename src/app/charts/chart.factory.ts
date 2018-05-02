@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { CHARTIST_TOKEN } from './chartist.opaqueToken';
+import { CHARTIST_TOKEN } from './chartist.injectionToken';
 
 export interface PieData {
     labels: Array<string>;

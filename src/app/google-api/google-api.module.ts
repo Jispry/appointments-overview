@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { GOOGLEAPI_TOKEN, APICONFIG_TOKEN, KALENDARID_TOKEN } from './googleApi';
+import { GOOGLEAPI_TOKEN, APICONFIG_TOKEN, KALENDARID_TOKEN, GoogleApi } from './googleApi';
 import { GoogleAuthService } from './services/google-auth.service';
 import { GoogleCalendarService } from './services/google-calendar.service';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { apiKeys, calendarId } from './api-config'; // this file is not tracked by GIT
 
-export declare let gapi: any;
+// export declare let gapi: GoogleApi;
+// TODO refactor module toprovide gapi as service https://github.com/rubenCodeforges/ng-gapi/tree/master/src
 
 @NgModule({
   imports: [

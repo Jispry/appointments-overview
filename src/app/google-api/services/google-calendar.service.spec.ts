@@ -6,15 +6,15 @@ import { KALENDARID_TOKEN } from '../googleApi';
 
 describe('GoogleCalendarService', () => {
   let kalendarId;
-    beforeEach(() => {
-      kalendarId = '';
-      TestBed.configureTestingModule({
-        providers: [
-          GoogleCalendarService,
-          { provide: KALENDARID_TOKEN, useValue: kalendarId }
-        ]
-      });
+  beforeEach(() => {
+    kalendarId = '';
+    TestBed.configureTestingModule({
+      providers: [
+        GoogleCalendarService,
+        { provide: KALENDARID_TOKEN, useValue: kalendarId }
+      ]
     });
+  });
 
   it('should ...', inject([GoogleCalendarService], (service: GoogleCalendarService) => {
     expect(service).toBeTruthy();

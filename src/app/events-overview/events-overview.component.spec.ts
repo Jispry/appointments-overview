@@ -21,7 +21,7 @@ describe('EventsOverviewComponent', () => {
     });
 
     it('should load overView from service to data', () => {
-      const expectedOverview = [{ a: 'data' }];
+      const expectedOverview: Array<GroupedByEventCreator> = [{ name: 'name', totalCount: 10, totalDuration: 50 }];
       (<jasmine.Spy>eventsServiceMock.groupEventsByName).and.returnValue(expectedOverview);
 
       component.ngOnInit();

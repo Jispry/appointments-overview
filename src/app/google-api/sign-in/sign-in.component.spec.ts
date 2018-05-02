@@ -53,7 +53,7 @@ describe('SignInComponent', () => {
     it('should set value after event emited', () => {
       let authStub = new AuthServiceStub();
       let ngZoneStub = {
-        run: function(a){
+        run: function(a) {
           a();
         }
       };
@@ -97,7 +97,7 @@ describe('SignInComponent', () => {
     });
 
     it('should set value after event emited', () => {
-      let authService = <AuthServiceStub>fixture.debugElement.injector.get(GoogleAuthService);
+      let authService: any = fixture.debugElement.injector.get(GoogleAuthService);
 
       authService.emitValue(true);
 
