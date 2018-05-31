@@ -31,9 +31,7 @@ module.exports = function (config) {
       config: './angular-cli.json',
       environment: 'dev'
     },
-    reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['mocha', 'karma-remap-istanbul']
-              : ['mocha'],
+    reporters: config.angularCli && config.angularCli.codeCoverage ? ['mocha', 'karma-remap-istanbul'] : ['mocha'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

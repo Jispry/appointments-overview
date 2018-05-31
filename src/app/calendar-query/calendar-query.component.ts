@@ -9,7 +9,7 @@ interface QueryResult {
   data: Array<any>;
   monthFrom: number;
   monthTo: number;
-};
+}
 
 @Component({
   selector: 'calendar-query',

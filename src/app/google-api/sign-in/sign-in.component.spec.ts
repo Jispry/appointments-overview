@@ -15,7 +15,7 @@ class AuthServiceStub {
 
   emitValue(value: boolean) {
     this.signInStatus.emit(value);
-  };
+  }
 }
 
 describe('SignInComponent', () => {

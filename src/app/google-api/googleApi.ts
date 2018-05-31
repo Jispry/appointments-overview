@@ -82,7 +82,7 @@ interface CalendarListResult {
         }
     ];
     items: Array<CalendarEvent>;
-};
+}
 
 export interface CalendarEvent {
     attendees: Array<any>;
@@ -102,7 +102,7 @@ export interface CalendarEvent {
     status: string;
     summary: string;
     updated: string;
-};
+}
 
 export interface DateObject {
     dateTime?: string;
